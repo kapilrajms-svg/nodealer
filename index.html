@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Dealer - Buy Cars Directly From Owners</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Open Sans', sans-serif; background-color: #f8fafc; }
+        h1, h2, h3, .font-heading { font-family: 'Montserrat', sans-serif; }
+        .brand-red { color: #E31E24; }
+        .bg-brand-red { background-color: #E31E24; }
+        .bg-brand-blue { background-color: #1E88E5; }
+        
+        #preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, #1e293b 0%, #0f172a 100%);
+            z-index: 99999;
+            display: flex; flex-direction: column; 
+            justify-content: center; align-items: center;
+            transition: all 0.7s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        .start-btn {
+            background: linear-gradient(145deg, #ef4444, #E31E24);
+            box-shadow: 0 0 40px rgba(227, 30, 36, 0.6);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 30px rgba(227, 30, 36, 0.6); }
+            50% { transform: scale(1.05); box-shadow: 0 0 50px rgba(227, 30, 36, 0.9); }
+            100% { transform: scale(1); box-shadow: 0 0 30px rgba(227, 30, 36, 0.6); }
+        }
+    </style>
+</head>
+<body class="overflow-hidden">
+
+    <div id="preloader">
+        <div class="text-center p-6 max-w-lg flex flex-col items-center">
+            <div class="mb-6 bg-white p-2 rounded-xl shadow-2xl flex items-center justify-center w-32 h-32 overflow-hidden">
+                <img src="Logo.png" alt="No Dealer Logo" class="w-full h-full object-contain" onerror="this.src='Logo.jpg'; this.onerror=function(){this.src='Logo.jpeg';};">
+            </div>
+            <h2 class="text-white text-3xl font-extrabold tracking-tight font-heading mb-1">NO <span class="text-blue-500">Dealer</span></h2>
+            <p class="text-gray-400 text-xs font-semibold tracking-widest uppercase mb-16">Buy Car Directly From Owner's</p>
+            
+            <div class="relative flex flex-col items-center justify-center mx-auto">
+                <button onclick="startEngine()" class="start-btn text-white font-heading font-black text-xl w-32 h-32 rounded-full border-4 border-slate-900 flex flex-col items-center justify-center transition-all focus:outline-none active:scale-95">
+                    <i class="fa-solid fa-power-off text-2xl mb-1"></i>
+                    <span class="text-xs uppercase tracking-wider">START</span>
+                    <span class="text-[10px] opacity-75">ENGINE</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <audio id="engineSound" preload="auto">
+        <source src="https://assets.mixkit.co/active_storage/sfx/2568/2568-84.wav" type="audio/wav">
+    </audio>
+
+    <div id="main-content" class="opacity-0 transition-opacity duration-1000">
+        <header class="bg-white shadow-sm sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+                <a href="#" class="flex items-center gap-3">
+                    <div class="bg-white p-1 rounded shadow-sm w-12 h-12 flex items-center justify-center overflow-hidden border border-gray-100">
+                        <img src="Logo.png" alt="No Dealer" class="w-full h-full object-contain" onerror="this.src='Logo.jpg'; this.onerror=function(){this.src='Logo.jpeg';};">
+                    </div>
+                    <div>
+                        <span class="font-black text-xl text-slate-900 block leading-none">NO <span class="text-blue-500">Dealer</span></span>
+                        <span class="text-[9px] uppercase font-bold tracking-tight text-gray-500 block mt-1">Buy Car Directly From Owner's</span>
+                    </div>
+                </a>
+                <nav class="hidden md:flex space-x-6 text-sm font-semibold text-gray-700">
+                    <a href="#" class="text-red-600">Home</a>
+                    <a href="#" class="hover:text-blue-500">Buy Car</a>
+                    <a href="#" class="hover:text-blue-500">Direct Party Cars</a>
+                    <a href="#" class="hover:text-blue-500">How It Works</a>
+                    <a href="https://www.instagram.com/nodealer.india/" target="_blank" class="hover:text-blue-500">Instagram</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <a href="https://wa.me/917838335143" target="_blank" class="bg-green-500 text-white text-xs font-bold px-4 py-2 rounded shadow hover:bg-green-600 flex items-center gap-1">
+                        <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp Us
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <section class="bg-white pt-8 pb-16">
+            <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h1 class="text-4xl md:text-5xl font-black text-slate-900 uppercase mb-4 leading-tight">
+                        Buy Car <br>Directly From <br><span class="brand-red">Owner's</span>
+                    </h1>
+                    <p class="text-gray-700 font-bold text-lg mb-6"><i class="fa-solid fa-circle-check text-green-500 mr-2"></i>No Middleman. No Extra Charges. Save Massive Costs.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://wa.me/917838335143" target="_blank" class="bg-brand-red text-white font-bold px-6 py-3 rounded shadow hover:bg-red-700 text-center">Contact Owner</a>
+                        <a href="https://www.instagram.com/nodealer.india/" target="_blank" class="bg-brand-blue text-white font-bold px-6 py-3 rounded shadow hover:bg-blue-600 flex items-center gap-2">
+                            <i class="fa-brands fa-instagram"></i> Follow Updates
+                        </a>
+                    </div>
+                </div>
+                <div><img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&q=80&w=800" class="w-full rounded-lg shadow-md" alt="Cars Showcase"></div>
+            </div>
+        </section>
+
+        <section class="max-w-6xl mx-auto px-4 -mt-8 relative z-20">
+            <div class="bg-brand-blue rounded-xl p-6 shadow-xl text-white">
+                <h3 class="font-heading font-bold text-lg uppercase mb-4">Filter Real-Time Verified Inventory</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase mb-1">1. Your Budget</label>
+                        <select class="w-full bg-white text-slate-800 p-2 rounded text-sm font-semibold"><option>Select Budget</option></select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase mb-1">2. Car Brand</label>
+                        <select class="w-full bg-white text-slate-800 p-2 rounded text-sm font-semibold"><option>Select Brand</option></select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase mb-1">3. Fuel Type</label>
+                        <select class="w-full bg-white text-slate-800 p-2 rounded text-sm font-semibold"><option>Select Fuel Type</option></select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase mb-1">4. Transmission</label>
+                        <select class="w-full bg-white text-slate-800 p-2 rounded text-sm font-semibold"><option>Select Transmission</option></select>
+                    </div>
+                </div>
+                <a href="https://wa.me/917838335143" target="_blank" class="block w-full text-center mt-4 bg-brand-red font-bold py-3 rounded uppercase tracking-wider hover:bg-red-700 transition">Inquire About Stock <i class="fa-solid fa-search ml-1"></i></a>
+            </div>
+        </section>
+
+        <main class="max-w-7xl mx-auto px-4 py-16">
+            <h2 class="text-2xl font-black text-slate-900 uppercase mb-8 pb-2 border-b">CURRENT VERIFIED <span class="text-blue-600">IN-STOCK</span> INVENTORY</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="bg-white rounded-lg shadow overflow-hidden border border-gray-100 flex flex-col justify-between group">
+                    <div class="relative bg-slate-100 h-44 overflow-hidden flex items-center justify-center">
+                        <img src="car1.jpg" alt="Maruti Swift" class="w-full h-full object-cover" onerror="this.src='car1.png'; this.onerror=function(){this.src='car1.jpeg';};">
+                    </div>
+                    <div class="p-4 flex-grow">
+                        <h3 class="font-bold text-sm text-slate-800">Maruti Swift Vxi</h3>
+                        <p class="text-xs text-blue-600 font-bold mb-2">2022 Model • Fully Modified</p>
+                        <div class="text-[11px] text-gray-500 space-y-1 border-t pt-2">
+                            <p><strong>Driven:</strong> 49k km</p>
+                            <p><strong>Owner:</strong> Single Owner</p>
+                            <p class="italic text-slate-600">"17'inch alloys and Full bucket seat cover"</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 p-3 border-t flex justify-between items-center">
+                        <span class="text-sm font-black brand-red">₹5,50,000</span>
+                        <a href="https://wa.me/917838335143?text=Hi,%20I%20am%20interested%20in%20the%20Maruti%20Swift%202022" target="_blank" class="text-xs font-bold text-blue-600 hover:underline">Buy Direct →</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow overflow-hidden border border-gray-100 flex flex-col justify-between group">
+                    <div class="relative bg-slate-100 h-44 overflow-hidden flex items-center justify-center">
+                        <img src="car2.jpg" alt="Swift Dzire" class="w-full h-full object-cover" onerror="this.src='car2.png'; this.onerror=function(){this.src='car2.jpeg';};">
+                    </div>
+                    <div class="p-4 flex-grow">
+                        <h3 class="font-bold text-sm text-slate-800">Swift Dzire Vxi</h3>
+                        <p class="text-xs text-blue-600 font-bold mb-2">2019 Model • Pure Petrol</p>
+                        <div class="text-[11px] text-gray-500 space-y-1 border-t pt-2">
+                            <p><strong>Driven:</strong> 95k km</p>
+                            <p><strong>Owner:</strong> 1st Owner</p>
+                            <p class="italic text-slate-600">"variant Vxi"</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 p-3 border-t flex justify-between items-center">
+                        <span class="text-sm font-black brand-red">₹4,20,000</span>
+                        <a href="https://wa.me/917838335143?text=Hi,%20I%20am%20interested%20in%20the%20Swift%20Dzire%202019" target="_blank" class="text-xs font-bold text-blue-600 hover:underline">Buy Direct →</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow overflow-hidden border border-gray-100 flex flex-col justify-between group">
+                    <div class="relative bg-slate-100 h-44 overflow-hidden flex items-center justify-center">
+                        <img src="car3.jpg" alt="Maruti Ignis" class="w-full h-full object-cover" onerror="this.src='car3.png'; this.onerror=function(){this.src='car3.jpeg';};">
+                    </div>
+                    <div class="p-4 flex-grow">
+                        <h3 class="font-bold text-sm text-slate-800">Maruti Ignis Delta</h3>
+                        <p class="text-xs text-blue-600 font-bold mb-2">2023 Model • Petrol Only</p>
+                        <div class="text-[11px] text-gray-500 space-y-1 border-t pt-2">
+                            <p><strong>Driven:</strong> 33k km</p>
+                            <p><strong>Owner:</strong> 1st Owner</p>
+                            <p class="italic text-slate-600">"variant Delta"</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 p-3 border-t flex justify-between items-center">
+                        <span class="text-sm font-black brand-red">₹4,75,000</span>
+                        <a href="https://wa.me/917838335143?text=Hi,%20I%20am%20interested%20in%20the%20Maruti%20Ignis%202023" target="_blank" class="text-xs font-bold text-blue-600 hover:underline">Buy Direct →</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow overflow-hidden border border-gray-100 flex flex-col justify-between group">
+                    <div class="relative bg-slate-100 h-44 overflow-hidden flex items-center justify-center">
+                        <img src="car4.jpg" alt="Maruti Celerio" class="w-full h-full object-cover" onerror="this.src='car4.png'; this.onerror=function(){this.src='car4.jpeg';};">
+                    </div>
+                    <div class="p-4 flex-grow">
+                        <h3 class="font-bold text-sm text-slate-800">Maruti Celerio</h3>
+                        <p class="text-xs text-blue-600 font-bold mb-2">2022 Model • Petrol Only</p>
+                        <div class="text-[11px] text-gray-500 space-y-1 border-t pt-2">
+                            <p><strong>Driven:</strong> 30k km</p>
+                            <p><strong>Owner:</strong> 1st Owner</p>
+                            <p class="italic text-slate-600">"variant Lxi"</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 p-3 border-t flex justify-between items-center">
+                        <span class="text-sm font-black brand-red">₹3,55,000</span>
+                        <a href="https://wa.me/917838335143?text=Hi,%20I%20am%20interested%20in%20the%20Maruti%20Celerio%202022" target="_blank" class="text-xs font-bold text-blue-600 hover:underline">Buy Direct →</a>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <footer class="bg-white border-t border-slate-100 py-12 px-4">
+            <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8 mb-8 text-xs text-gray-500">
+                <div>
+                    <div class="logo-box mb-3 flex items-center gap-2">
+                        <img src="Logo.png" class="w-8 h-8 object-contain" onerror="this.src='Logo.jpg'; this.onerror=function(){this.src='Logo.jpeg';};">
+                        <div class="logo-text text-xl font-heading font-bold text-slate-900"><span>NO </span><span class="text-blue-500">Dealer</span></div>
+                    </div>
+                    <p>NoDealer India connects vehicle buyers directly with genuine private owners brokerage free.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold uppercase mb-2 text-slate-800">Social Presence</h4>
+                    <ul>
+                        <li><a href="https://www.instagram.com/nodealer.india/" target="_blank" class="hover:text-blue-500"><i class="fa-brands fa-instagram mr-1"></i> Instagram</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold uppercase mb-2 text-slate-800">Useful Links</h4>
+                    <ul><li>Why NoDealer</li><li>Terms & Conditions</li></ul>
+                </div>
+                <div>
+                    <h4 class="font-bold uppercase mb-2 text-slate-800">Contact Channels</h4>
+                    <p class="mb-1"><i class="fa-solid fa-phone mr-1"></i> Call: +91 7838335143</p>
+                    <p class="mb-1"><i class="fa-brands fa-whatsapp text-green-500 mr-1"></i> Chat: +91 7838335143</p>
+                    <p><i class="fa-solid fa-envelope mr-1"></i> Email: Kapilraj.ms@gmail.com</p>
+                </div>
+            </div>
+            <center class="text-xs text-gray-400">&copy; 2026 NoDealer India | All Rights Reserved</center>
+        </footer>
+    </div>
+
+    <script>
+        function startEngine() {
+            document.getElementById('engineSound').play().catch(e => console.log(e));
+            const preloader = document.getElementById('preloader');
+            preloader.style.transform = 'translateY(-100%)';
+            document.body.classList.remove('overflow-hidden');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+                document.getElementById('main-content').classList.remove('opacity-0');
+            }, 600);
+        }
+    </script>
+</body>
+</html>
